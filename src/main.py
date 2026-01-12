@@ -8,7 +8,16 @@ def klasoru_tara(klasor_yolu="."):
 
         if os.path.isfile(tam_yol):
             dosya_adi, uzanti = os.path.splitext(eleman)
-            print(f"Dosya: {dosya_adi} | Uzantı: {uzanti}")
+
+            if uzanti:
+                klasor_adi = uzanti[1:].upper()
+                hedef_klasor = os.path.join(klasor_yolu, klasor_adi)
+
+                if not os.path.exists(hedef_klasor):
+                    os.makedirs(hedef_klasor)
+                    print(f"Oluşturuldu: {hedef_klasor}")
+
+                print(f"{eleman} → {klasor_adi}/")
 
 if __name__ == "__main__":
     klasoru_tara()
