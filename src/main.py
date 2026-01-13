@@ -17,7 +17,10 @@ def klasoru_tara(klasor_yolu="."):
                     os.makedirs(hedef_klasor)
                     print(f"Oluşturuldu: {hedef_klasor}")
 
-                print(f"{eleman} → {klasor_adi}/")
+                hedef_yol = os.path.join(hedef_klasor, eleman)
+
+                os.rename(tam_yol, hedef_yol)
+                print(f"Taşındı: {eleman} → {klasor_adi}/")
 
 if __name__ == "__main__":
     klasoru_tara()
